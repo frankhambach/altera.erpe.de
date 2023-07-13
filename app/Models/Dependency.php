@@ -10,6 +10,8 @@ class Dependency extends Model
     use HasFactory;
     use HasName;
 
+    protected $fillable = ['areaId', 'countryId', 'regionId', 'slug'];
+
     protected $with = ['name'];
 
     public function area()

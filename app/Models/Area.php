@@ -12,7 +12,7 @@ class Area extends Model
 
     protected $fillable = ['quarterId', 'slug'];
 
-    protected $with = ['name', 'countries'];
+    protected $with = ['name', 'countries', 'dependencies'];
 
     public function countries()
     {
