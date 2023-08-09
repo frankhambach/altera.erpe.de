@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Support\HasGeometry;
 use App\Support\HasName;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Continent extends Model
 {
     use HasFactory;
+    use HasGeometry;
     use HasName;
 
     protected $fillable = ['landmassId', 'slug'];

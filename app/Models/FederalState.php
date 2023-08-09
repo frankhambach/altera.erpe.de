@@ -9,10 +9,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class FederalState extends Model
 {
+    use HasDemonym;
     use HasFactory;
     use HasName;
     use HasOfficialName;
-    use HasDemonym;
 
     protected $fillable = ['slug'];
 
