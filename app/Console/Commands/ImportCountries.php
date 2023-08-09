@@ -226,7 +226,11 @@ class ImportCountries extends Command
                                     $this->warn("Could not determine country $countryName for dependency $dependencyName");
                                 } else {
                                     $country = $countries[$countryName];
-                                    $country->dependencies()->create(['slug' => $dependencySlug, 'areaId' => $areas[$cultures[$dependencyName]['areaName']]->id, 'regionId' => $regions[$cultures[$dependencyName]['regionName']]->id]);
+                                    $dependency = $country->dependencies()->create(['slug' => $dependencySlug, 'areaId' => $areas[$cultures[$dependencyName]['areaName']]->id, 'regionId' => $regions[$cultures[$dependencyName]['regionName']]->id]);
+                                    $dependency->name()->create(['name' => $dependencyName, 'grammaticalNumber' => $cultures[$dependencyName]['grammaticalNumber']]);
+                                    if ($countryDemonymPrefix !== null || $countryDemonymNoun !== null) {
+                                        $dependency->demonym()->create(['prefix' => $countryDemonymPrefix, 'noun' => $countryDemonymNoun, 'adjective' => $countryDemonymAdjective]);
+                                    }
                                 }
                             }
                             break;
