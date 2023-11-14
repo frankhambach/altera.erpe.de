@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Support\HasDemonym;
+use App\Support\HasGeometry;
 use App\Support\HasName;
 use App\Support\HasOfficialName;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,6 +12,7 @@ class FederalState extends Model
 {
     use HasDemonym;
     use HasFactory;
+    use HasGeometry;
     use HasName;
     use HasOfficialName;
 
