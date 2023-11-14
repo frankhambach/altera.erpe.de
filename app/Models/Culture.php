@@ -10,6 +10,11 @@ class Culture extends Model
 
     protected $fillable = ['slug'];
 
+    public function script()
+    {
+        return $this->belongsTo(Script::class);
+    }
+
     public function state()
     {
         return $this->morphTo();
