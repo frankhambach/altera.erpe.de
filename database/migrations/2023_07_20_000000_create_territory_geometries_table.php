@@ -26,10 +26,11 @@ return new class extends Migration
         Schema::create('territory_geometries', function (Blueprint $table) {
             $table->id();
             $table->multiPolygon('land');
-            $table->multiPolygon('sea');
-            $table->multiLineString('land_border');
-            $table->multiLineString('sea_border');
-            $table->multiLineString('coast');
+            $table->multiPolygon('sea')->nullable();
+            $table->multiLineString('land_border')->nullable();
+            $table->multiLineString('sea_border')->nullable();
+            $table->multiLineString('coast')->nullable();
+            $table->morphs('territory');
             $table->timestamps();
         });
     }
