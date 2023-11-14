@@ -231,6 +231,8 @@ class ImportCountries extends Command
                                     if ($countryDemonymPrefix !== null || $countryDemonymNoun !== null) {
                                         $dependency->demonym()->create(['prefix' => $countryDemonymPrefix, 'noun' => $countryDemonymNoun, 'adjective' => $countryDemonymAdjective]);
                                     }
+
+                                    $dependency->culture()->create(['slug' => $dependencySlug]);
                                 }
                             }
                             break;

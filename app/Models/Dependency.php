@@ -28,6 +28,11 @@ class Dependency extends Model
         return $this->belongsTo(Country::class);
     }
 
+    public function culture()
+    {
+        return $this->morphOne(Culture::class, 'state');
+    }
+
     public function region()
     {
         return $this->belongsTo(Region::class);
